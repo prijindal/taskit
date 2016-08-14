@@ -1,0 +1,124 @@
+var gulp = require('gulp'),
+    gulpWatch = require('gulp-watch'),
+    del = require('del'),
+    fs = require('fs'),
+    glob = require('glob'),
+    async = require('async'),
+    runSequence = require('run-sequence'),
+    argv = process.argv;
+
+
+/**
+ * Ionic hooks
+ * Add ':before' or ':after' to any Ionic project command name to run the specified
+ * tasks before or after the command.
+ */
+gulp.task('serve:before', ['watch']);
+gulp.task('emulate:before', ['build']);
+gulp.task('deploy:before', ['build']);
+gulp.task('build:before', ['build']);
+gulp.task('upload:before', ['build'], function(done) {
+  var indexPath = './www/build/js/app.bundle.js'
+  var js = fs.readFileSync(indexPath, 'utf8');
+
+  js = js.replace('{{apikey}}','app');
+  js = js.replace('http://localhost:5000/api','https://alakart-api-dev.herokuapp.com/api');
+
+  fs.writeFile(indexPath, js, 'utf8', function(err, data) {
+    done()
+  });
+});
+
+// we want to 'watch' when livereloading
+var shouldWatch = argv.indexOf('-l') > -1 || argv.indexOf('--livereload') > -1;
+gulp.task('run:before', [shouldWatch ? 'watch' : 'build']);
+
+/**
+ * Ionic Gulp tasks, for more information on each see
+ * https://github.com/driftyco/ionic-gulp-tasks
+ *
+ * Using these will allow you to stay up to date if the default Ionic 2 build
+ * changes, but you are of course welcome (and encouraged) to customize your
+ * build however you see fit.
+ */
+var buildBrowserify = require('ionic-gulp-browserify-typescript');
+var buildSass = require('ionic-gulp-sass-build');
+var copyHTML = require('ionic-gulp-html-copy');
+var copyFonts = require('ionic-gulp-fonts-copy');
+var copyScripts = require('ionic-gulp-scripts-copy');
+var tslint = require('ionic-gulp-tslint');
+
+var isRelease = argv.indexOf('--release') > -1;
+
+var shouldSkipBuild = argv.indexOf('--skip-build') > 1;
+
+gulp.task('watch', ['clean'], function(done){
+  runSequence(
+    ['sass', 'html', 'fonts', 'scripts'],
+    function(){
+      gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
+      gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
+      buildBrowserify({ watch: true }).on('end', done);
+    }
+  );
+});
+
+if (shouldSkipBuild) {
+  gulp.task('build:prequel', function(done) {
+    done();
+  });
+}
+else {
+  gulp.task('build:prequel', ['clean'], function(done){
+    runSequence(
+      ['sass', 'html', 'fonts', 'scripts'],
+      function(){
+        buildBrowserify({
+          minify: isRelease,
+          browserifyOptions: {
+            debug: !isRelease
+          },
+          uglifyOptions: {
+            mangle: false
+          }
+        }).on('end', done);
+      }
+    );
+  });
+}
+
+gulp.task('build', ['build:prequel'], function(done) {
+  glob('./www/build/**/*.html', function(e,files) {
+    var indexPath = './www/build/js/app.bundle.js'
+    var js = fs.readFileSync(indexPath, 'utf8');
+
+    async.eachSeries(files, function(file, callback) {
+      filename = file.substr(6)
+      var html = fs.readFileSync(file, 'utf8');
+      js = js.replace("templateUrl: '" + filename + "'", "template: `" + html +"`")
+      callback()
+    }, function() {
+      fs.writeFile(indexPath, js, 'utf8', function(err, data) {
+        done()
+      });
+    })
+  })
+})
+
+gulp.task('sass', function() {
+  return buildSass({
+    includePaths: [
+      'node_modules/ionic-angular',
+      'node_modules/ionicons/dist/scss',
+      'node_modules/semantic-ui-label',
+      'node_modules/material-design-lite/src'
+    ]
+  })
+});
+gulp.task('html', copyHTML);
+gulp.task('fonts', copyFonts);
+gulp.task('scripts', copyScripts);
+gulp.task('clean', function(){
+  return del('www/build');
+});
+gulp.task('lint', tslint);

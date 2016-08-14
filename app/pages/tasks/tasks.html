@@ -1,0 +1,26 @@
+<ion-header class="tasks-navbar">
+  <ion-navbar danger>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Inbox</ion-title>
+    <ion-buttons end>
+      <button (click)="goToSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button (click)="goToSearch()">
+        <ion-icon name="square-outline"></ion-icon>
+      </button>
+      <button (click)="openSettings($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen class="tasks">
+  <scroll-content class="layout flex column center no-tasks">
+    <ion-icon name="mail-open"></ion-icon>
+    <h2>No tasks for Inbox.</h2>
+  </scroll-content>
+</ion-content>

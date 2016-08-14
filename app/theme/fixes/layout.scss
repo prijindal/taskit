@@ -1,0 +1,28 @@
+ion-header {
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+
+  .toolbar-background {
+    background-color: $toolbar-background;
+  }
+
+  .toolbar-title {
+    padding: 0 3px;
+  }
+
+  button[menutoggle] {
+    margin: 0 3px;
+  }
+}
+
+.popover-content {
+  width: 150px;
+
+  ion-list {
+    margin-bottom: 4px;
+
+    button {
+      font-size: 1.5rem;
+    }
+  }
+}
