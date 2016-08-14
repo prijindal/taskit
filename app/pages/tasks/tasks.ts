@@ -10,6 +10,7 @@ import { OptionsPopover } from './options-popover/options-popover';
 export class TasksPage {
   newtasktext: string = '';
   addingtask: Boolean = false;
+  showaddingtask: Boolean = false;
   input: any;
 
   constructor(
@@ -41,7 +42,7 @@ export class TasksPage {
   }
 
   addTask(event) {
-    this.input['focus']();
+    this.showInput();
     this.addingtask = true;
     StatusBar.backgroundColorByHexString('#f4f4f4');
     Keyboard.onKeyboardHide()
@@ -50,8 +51,21 @@ export class TasksPage {
     });
   }
 
+  showInput() {
+    this.input['focus']();
+    Keyboard.onKeyboardShow()
+    .subscribe(() => {
+      this.showaddingtask = true;
+      this.ref.detectChanges();
+    });
+    if (Keyboard['installed']() === false) {
+      this.showaddingtask = true;
+    }
+  }
+
   closeInput(event?) {
     this.addingtask = false;
+    this.showaddingtask = false;
     StatusBar.backgroundColorByHexString('#c33433');
     this.ref.detectChanges();
     return false;
