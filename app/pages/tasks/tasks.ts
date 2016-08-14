@@ -15,4 +15,18 @@ export class TasksPage {
     let popover = this.popoverCtrl.create(OptionsPopover);
     popover.present({ev: event});
   }
+
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
+  goToSearch(event) {
+
+  }
 }

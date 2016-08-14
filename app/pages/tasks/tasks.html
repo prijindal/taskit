@@ -5,7 +5,7 @@
     </button>
     <ion-title>Inbox</ion-title>
     <ion-buttons end>
-      <button (click)="goToSearch()">
+      <button (click)="goToSearch($event)">
         <ion-icon name="search"></ion-icon>
       </button>
       <button (click)="goToSearch()">
@@ -19,6 +19,9 @@
 </ion-header>
 
 <ion-content fullscreen class="tasks">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <scroll-content class="layout flex column center no-tasks">
     <ion-icon name="mail-open"></ion-icon>
     <h2>No tasks for Inbox.</h2>
