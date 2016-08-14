@@ -1,3 +1,20 @@
+.toolbar {
+  &.addingtask {
+    .toolbar-background {
+      background-color: #fff;
+    }
+    .bar-button-default {
+      color: #444;
+    }
+  }
+}
+
+ion-buttons[left] {
+  .bar-button:first-child {
+    margin: 0 12px;
+  }
+}
+
 .tasks {
 
   .no-tasks {
@@ -7,5 +24,27 @@
       font-size: 20rem;
       color: #aaaaaa;
     }
+  }
+
+  button[fab] {
+    transition: all .5s, font-size .3s;
+    z-index: 9;
+
+    &.hidden {
+      bottom: 44px;
+      font-size: 1px;
+      height: 0;
+      right: 44px;
+      width: 0;
+    }
+  }
+
+  .new-task {
+    z-index: 9;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 0;
+    width: 100%;
   }
 }

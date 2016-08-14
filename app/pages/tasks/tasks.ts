@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { PopoverController } from 'ionic-angular';
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { NavController, PopoverController } from 'ionic-angular';
+import { Keyboard, StatusBar } from 'ionic-native';
 
 import { OptionsPopover } from './options-popover/options-popover';
 
@@ -7,7 +8,11 @@ import { OptionsPopover } from './options-popover/options-popover';
   templateUrl: 'build/pages/tasks/tasks.html'
 })
 export class TasksPage {
+  newtasktext: string = '';
+  addingtask: Boolean = false;
+
   constructor(
+    private ref: ChangeDetectorRef,
     private popoverCtrl: PopoverController
   ) { }
 
@@ -28,5 +33,32 @@ export class TasksPage {
 
   goToSearch(event) {
 
+  }
+
+  addTask(event) {
+    Keyboard.show();
+    this.addingtask = true;
+    StatusBar.backgroundColorByHexString('#f4f4f4');
+    Keyboard.onKeyboardHide()
+    .subscribe(() => {
+      this.closeInput();
+    });
+    setTimeout(() => {
+      let input = document.querySelector('input');
+      input['focus']();
+    }, 0);
+  }
+
+  closeInput(event?) {
+    this.addingtask = false;
+    StatusBar.backgroundColorByHexString('#c33433');
+    this.ref.detectChanges();
+    return false;
+  }
+
+  addNewTask(event) {
+    this.newtasktext = '';
+    // Add Task
+    return false;
   }
 }
