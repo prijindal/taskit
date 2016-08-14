@@ -17,17 +17,7 @@ gulp.task('serve:before', ['watch']);
 gulp.task('emulate:before', ['build']);
 gulp.task('deploy:before', ['build']);
 gulp.task('build:before', ['build']);
-gulp.task('upload:before', ['build'], function(done) {
-  var indexPath = './www/build/js/app.bundle.js'
-  var js = fs.readFileSync(indexPath, 'utf8');
-
-  js = js.replace('{{apikey}}','app');
-  js = js.replace('http://localhost:5000/api','https://alakart-api-dev.herokuapp.com/api');
-
-  fs.writeFile(indexPath, js, 'utf8', function(err, data) {
-    done()
-  });
-});
+gulp.task('upload:before', ['build']);
 
 // we want to 'watch' when livereloading
 var shouldWatch = argv.indexOf('-l') > -1 || argv.indexOf('--livereload') > -1;
