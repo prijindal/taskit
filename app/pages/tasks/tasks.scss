@@ -16,6 +16,9 @@ ion-buttons[left] {
 }
 
 .tasks {
+  ion-list .item-input:last-child {
+    box-shadow: none;
+  }
 
   .no-tasks {
     text-align: center;
