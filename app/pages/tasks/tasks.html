@@ -41,7 +41,7 @@
     <ion-icon name="add"></ion-icon>
   </button>
 
-  <ion-list class="new-task" no-lines [hidden]="!addingtask">
+  <ion-list class="new-task" no-lines [class.hidden]="!addingtask">
     <form (ngSubmit)="addNewTask($event)" #addform="ngForm">
       <ion-item>
         <ion-input placeholder="Add a task" name="task" [(ngModel)]="newtasktext"></ion-input>

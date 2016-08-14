@@ -1,4 +1,7 @@
 .toolbar {
+  .toolbar-background {
+    transition: background-color .1s;
+  }
   &.addingtask {
     .toolbar-background {
       background-color: #fff;
@@ -24,21 +27,17 @@ ion-buttons[left] {
     text-align: center;
 
     ion-icon {
-      font-size: 20rem;
-      color: #aaaaaa;
+      font-size: 17rem;
+      color: #aaa;
     }
   }
 
   button[fab] {
-    transition: all .5s, font-size .3s;
+    transition: transform .1s;
     z-index: 9;
 
     &.hidden {
-      bottom: 44px;
-      font-size: 1px;
-      height: 0;
-      right: 44px;
-      width: 0;
+      transform: scale(0);
     }
   }
 
@@ -49,5 +48,31 @@ ion-buttons[left] {
     bottom: 0;
     margin-bottom: 0;
     width: 100%;
+    transition: max-height .1s;
+    max-height: 100px;
+
+    &.hidden {
+      max-height: 0;
+
+      &::after {
+        height: 0;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      top: -5px;
+      bottom: auto;
+      left: 0;
+
+      width: 100%;
+      height: 3px;
+
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAHBAMAAADzDtBxAAAAD1BMVEUAAAAAAAAAAAAAAAAAAABPDueNAAAABXRSTlMUCS0gBIh/TXEAAAAaSURBVAjXYxCEAgY4UIICBmMogMsgFLtAAQCNSwXZKOdPxgAAAABJRU5ErkJggg==);
+      background-repeat: repeat-x;
+      background-position: 0 0;
+
+      content: "";
+    }
   }
 }

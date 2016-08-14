@@ -10,11 +10,16 @@ import { OptionsPopover } from './options-popover/options-popover';
 export class TasksPage {
   newtasktext: string = '';
   addingtask: Boolean = false;
+  input: any;
 
   constructor(
     private ref: ChangeDetectorRef,
     private popoverCtrl: PopoverController
   ) { }
+
+  ionViewDidEnter() {
+    this.input = document.querySelector('input');
+  }
 
   openSettings(event) {
     let popover = this.popoverCtrl.create(OptionsPopover);
@@ -36,17 +41,13 @@ export class TasksPage {
   }
 
   addTask(event) {
-    Keyboard.show();
+    this.input['focus']();
     this.addingtask = true;
     StatusBar.backgroundColorByHexString('#f4f4f4');
     Keyboard.onKeyboardHide()
     .subscribe(() => {
       this.closeInput();
     });
-    setTimeout(() => {
-      let input = document.querySelector('input');
-      input['focus']();
-    }, 0);
   }
 
   closeInput(event?) {
