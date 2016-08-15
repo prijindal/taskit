@@ -110,6 +110,6 @@ export class TasksPage {
   }
 
   onSearchFocus(event) {
-    console.log('Search Focused');
+    Keyboard.show();
   }
 }
