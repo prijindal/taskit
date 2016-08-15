@@ -1,16 +1,25 @@
 <ion-header class="tasks-navbar">
-  <ion-navbar danger [class.addingtask]="addingtask">
-    <button menuToggle *ngIf="!addingtask">
+  <ion-navbar danger [class.addingtask]="addingtask || searching">
+    <button menuToggle *ngIf="!addingtask && !searching">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-buttons left *ngIf="addingtask">
+    <ion-buttons left *ngIf="addingtask && !searching">
       <button (click)="closeInput($event)">
         <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title *ngIf="!addingtask">Inbox</ion-title>
-    <ion-buttons end *ngIf="!addingtask">
-      <button (click)="goToSearch($event)">
+    <ion-searchbar
+      [hidden]="!searching"
+      [(ngModel)]="searchtext"
+      showCancelButton="true"
+      (ionInput)="onSearchInput($event)"
+      (ionCancel)="onSearchCancel($event)"
+      (ionFocus)="onSearchFocus($event)">
+      <input/>
+    </ion-searchbar>
+    <ion-title *ngIf="!addingtask && !searching">Inbox</ion-title>
+    <ion-buttons end *ngIf="!addingtask && !searching">
+      <button (click)="openSearch($event)">
         <ion-icon name="search"></ion-icon>
       </button>
       <button (click)="goToSearch()">
@@ -20,7 +29,7 @@
         <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-buttons end *ngIf="addingtask">
+    <ion-buttons end *ngIf="addingtask && !searching">
       <button>
         <ion-icon name="albums"></ion-icon>
       </button>
@@ -29,19 +38,28 @@
 </ion-header>
 
 <ion-content fullscreen class="tasks">
-  <div class="layout flex column center no-tasks">
-    <ion-icon name="mail-open"></ion-icon>
-    <h2>No tasks for Inbox.</h2>
+  <div *ngIf="!searching">
+    <div class="layout flex column center no-tasks">
+      <ion-icon name="mail-open"></ion-icon>
+      <h2>No tasks for Inbox.</h2>
+    </div>
   </div>
 
-  <button [class.hidden]="addingtask" fab fab-bottom fab-right fab-fixed color="secondary" (click)="addTask($event)">
+  <div *ngIf="searching">
+    <div class="layout flex column center no-tasks">
+      <ion-icon name="search"></ion-icon>
+      <h2>No tasks.</h2>
+    </div>
+  </div>
+
+  <button [class.hidden]="addingtask || searching" fab fab-bottom fab-right fab-fixed color="secondary" (click)="addTask($event)">
     <ion-icon name="add"></ion-icon>
   </button>
 
   <ion-list class="new-task" no-lines [class.hidden]="!showaddingtask">
     <form (ngSubmit)="addNewTask($event)" #addform="ngForm">
       <ion-item>
-        <ion-input placeholder="Add a task" name="task" [(ngModel)]="newtasktext"></ion-input>
+        <ion-input placeholder="Add a task" name="newtask" [(ngModel)]="newtasktext"></ion-input>
       </ion-item>
     </form>
     <ion-toolbar light class="addingtask">
