@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "6"
+
+cache:
+  directories:
+    - node_modules
+    - $(npm config get prefix)/bin/ionic
+    - $(npm config get prefix)/bin/cordova
+    - $(npm config get prefix)/bin/sass-lint
+    - $(npm config get prefix)/bin/surge
+    - $(npm config get prefix)/bin/tslint
+
+before_install:
+  - npm install -g ionic@beta cordova surge sass-lint tslint
+
+install: npm install
+script:
+  - npm run tslint "app/**/*.ts"
+  - npm run sass-lint
+after_script:
+  - bash ./serve.sh

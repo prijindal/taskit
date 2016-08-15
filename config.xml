@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.prijindal.todoapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Todoapp</name>
-    <description>Todo App powered by Todoist</description>
+<widget id="com.prijindal.taskit" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>TaskIt</name>
+    <description>TaskIt powered by Todoist</description>
     <author email="priyanshujindal1995@gmail.com" href="https://prijindal.github.io/">Priyanshu Jindal</author>
     <content src="index.html" />
     <access origin="*" />
