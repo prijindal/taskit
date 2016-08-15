@@ -3,7 +3,6 @@ import { Platform, Nav, ionicBootstrap } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 import { TasksPage } from './pages/tasks/tasks';
 
-
 @Component({
   templateUrl: 'build/app.html'
 })
@@ -21,10 +20,28 @@ export class MyApp {
       StatusBar.styleDefault();
       StatusBar.backgroundColorByHexString('#c33433');
       this.initMenu();
+      this.initBackButton();
     });
   }
 
   initMenu() {
     this.enableMenu = true;
+  }
+
+  initBackButton() {
+    this.platform.registerBackButtonAction(() => {
+      if (this.nav.canGoBack()) {
+        this.nav.pop();
+      } else {
+        let homeIntent = navigator['home'];
+        if (homeIntent) {
+          homeIntent.home();
+        } else if (navigator['app']) {
+          navigator['app'].exitApp();
+        } else {
+          return true;
+        }
+      }
+    });
   }
 }
