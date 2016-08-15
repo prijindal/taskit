@@ -10,11 +10,76 @@
   <link ios-href="build/css/app.ios.css" rel="stylesheet">
   <link md-href="build/css/app.md.css" rel="stylesheet">
   <link wp-href="build/css/app.wp.css" rel="stylesheet">
+  <style>
+    #splash {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top:0;
+      left: 0;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #splash .loading-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    #splash ion-spinner {
+      position: relative;
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+    }
+
+    #splash ion-spinner svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      animation: init-spinner 1s linear infinite;
+      overflow: hidden;
+    }
+    #splash ion-spinner svg circle {
+      fill: transparent;
+      stroke-width: 4px;
+      stroke-dasharray: 128px;
+      stroke-dashoffset: 82px;
+      stroke: #387ef5;
+    }
+
+    @keyframes init-spinner {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- This is Ionic's root component, where the app will load -->
-  <ion-app></ion-app>
+  <ion-app>
+    <div id="splash">
+      <div class="loading-wrapper">
+        <ion-spinner class="spinner-crescent">
+          <svg viewBox="0 0 64 64" style="animation-duration: 750ms;">
+           <circle transform="translate(32,32)" r="26"></circle>
+          </svg>
+        </ion-spinner>
+      </div>
+    </div>
+  </ion-app>
 
   <!-- cordova.js required for cordova apps -->
   <script src="cordova.js"></script>
