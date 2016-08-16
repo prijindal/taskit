@@ -1,10 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav, ionicBootstrap } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
+
 import { TasksPage } from './pages/tasks/tasks';
 
+import { ProfileInfo } from './profile-info/profile-info';
+
 @Component({
-  templateUrl: 'build/app.html'
+  templateUrl: 'build/app.html',
+  directives: [ProfileInfo]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
