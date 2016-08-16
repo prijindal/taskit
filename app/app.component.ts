@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav } from 'ionic-angular';
+import { Platform, Nav, MenuController } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
 import { TasksPage } from './pages/tasks/tasks';
@@ -16,15 +16,18 @@ export class MyApp {
   rootPage: any = TasksPage;
   enableMenu: Boolean = false;
 
-  constructor(private platform: Platform) {
+  constructor(
+    private platform: Platform,
+    private menu: MenuController
+  ) {
     this.rootPage = TasksPage;
+    this.initMenu();
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       StatusBar.backgroundColorByHexString('#c33433');
-      this.initMenu();
       this.initBackButton();
     });
   }
@@ -37,6 +40,8 @@ export class MyApp {
     this.platform.registerBackButtonAction(() => {
       if (this.nav.canGoBack()) {
         this.nav.pop();
+      } else if (this.menu.isOpen()) {
+        this.menu.close();
       } else {
         let homeIntent = navigator['home'];
         if (homeIntent) {
