@@ -1,5 +1,8 @@
 .settings {
   ion-list {
     margin-top: 8px;
+    .item {
+      min-height: 5.7rem;
+    }
   }
 }
