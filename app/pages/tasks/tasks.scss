@@ -2,13 +2,16 @@
   .toolbar-background {
     transition: background-color .1s;
   }
+
   &.addingtask {
     .toolbar-background {
       background-color: #fff;
     }
+
     .bar-button-default {
       color: #444;
     }
+
     ion-icon {
       color: #666;
     }
@@ -46,6 +49,7 @@ ion-buttons[left] {
 
     h2 {
       font-size: 2.2rem;
+      font-weight: 300;
     }
   }
 

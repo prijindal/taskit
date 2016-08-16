@@ -1,5 +1,5 @@
 .profile {
-  margin: 25px 20px;
+  margin: 25px 20px 25px 10px;
    .profile-image-wrapper {
      margin-right: 20px;
      .profile-image-background {
@@ -11,5 +11,15 @@
    }
   .profile-info {
     color: #fff;
+    .profile-name {
+      font-weight: 500;
+      font-size: 1.6rem;
+    }
+    .profile-karma {
+      letter-spacing: -0.2px;
+    }
+    > div {
+      margin: 3px 0;
+    }
   }
 }
