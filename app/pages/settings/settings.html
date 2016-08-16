@@ -6,9 +6,38 @@
       </button>
     </ion-buttons>
     <ion-title>Settings</ion-title>
+    <ion-buttons end>
+      <button (click)="openMoreOptions($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content fullscreen class="settings">
-
+  <ion-list no-lines>
+    <button ion-item>
+      Upgrade to premium
+    </button>
+    <button ion-item>
+      General
+    </button>
+    <button ion-item>
+      Account
+    </button>
+    <button ion-item>
+      Notifications
+    </button>
+    <button ion-item>
+      Karma
+    </button>
+    <button ion-item>
+      Log out
+      <p>priyanshujindal1995@gmail.com</p>
+    </button>
+    <button ion-item disabled>
+      About
+      <p>Version 10.0.2 (Android 6.0.1)</p>
+    </button>
+  </ion-list>
 </ion-content>
