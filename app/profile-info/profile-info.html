@@ -1,4 +1,4 @@
-<div class="profile layout flex row start">
+<div class="profile-info layout flex row start" (click)="openProfile($event)">
   <div class="profile-image-wrapper">
     <div class="profile-image-background" [style.background-image]="'url(profile.png)'">
       <div class="profile-image-tooltip layout flex column center">
@@ -6,7 +6,7 @@
       </div>
     </div>
   </div>
-  <div class="profile-info layout flex column center">
+  <div class="profile-info-text layout flex column center">
     <div class="profile-name">
       Priyanshu Jindal
     </div>
