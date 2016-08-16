@@ -1,0 +1,67 @@
+<ion-header class="integrated-header">
+  <ion-navbar danger>
+    <ion-buttons left>
+      <button (click)="close()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <a button href="https://todoist.com" target="_blank">
+        <ion-icon name="mail"></ion-icon>
+      </a>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen class="premium-settings">
+  <ion-slides [options]="premiumSlideOptions">
+    <ion-slide>
+      <img src="img/premium/ic_premium_unlock.png"/>
+      <div class="text">
+        <h3>Unlock Your Potential</h3>
+        <p>
+          Premium gives you the tools to succeed across 15+ Platforms.
+          Upgrade today!
+        </p>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <img src="img/premium/ic_premium_organized.png"/>
+      <div class="text">
+        <h3>Get Even More Organised</h3>
+        <p>
+          Ignite your productivity with labels, reminders, comments, calendar sync and more.
+        </p>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <img src="img/premium/ic_premium_coordinated.png"/>
+      <div class="text">
+        <h3>Stay coordinated anywhere</h3>
+        <p>
+          With file uploads, voice messages, location reminders and more, you'll never miss a beat.
+        </p>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <img src="img/premium/ic_premium_more.png"/>
+      <div class="text">
+        <h3>And much more!</h3>
+        <p>
+          Including automatic backups, productivity tracking, advanced filters and other valuable features.
+        </p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+  <div class="upgrade-button layout flex row center">
+    <div class="layout flex column around">
+      <button danger>
+        Upgrade Now<br/>
+        $29 for 1 Year
+      </button>
+      <div class="text">
+        Join thousands who've upgraded!
+      </div>
+    </div>
+  </div>
+</ion-content>

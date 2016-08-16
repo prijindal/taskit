@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, Platform, PopoverController } from 'ionic-angular';
+import { NavController, Platform, PopoverController, ModalController } from 'ionic-angular';
 
 import { OptionsPopover } from './options-popover/options-popover';
+
+import { PremiumSettings } from './premium/premium';
 
 @Component({
   templateUrl: 'build/pages/settings/settings.html'
@@ -11,6 +13,7 @@ export class SettingsPage {
   constructor(
     private platform: Platform,
     private popoverCtrl: PopoverController,
+    private modalCtrl: ModalController,
     private nav: NavController
   ) {}
 
@@ -31,5 +34,10 @@ export class SettingsPage {
   openMoreOptions(event) {
     let popover = this.popoverCtrl.create(OptionsPopover);
     popover.present({ev: event});
+  }
+
+  openPremium(event) {
+    let premiumModal = this.modalCtrl.create(PremiumSettings);
+    premiumModal.present({ev: event});
   }
 }
