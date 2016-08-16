@@ -5,6 +5,7 @@ import { OptionsPopover } from './options-popover/options-popover';
 
 import { PremiumSettings } from './premium/premium';
 import { GeneralSettings } from './general/general';
+import { AccountSettings } from './account/account';
 
 @Component({
   templateUrl: 'build/pages/settings/settings.html'
@@ -45,5 +46,10 @@ export class SettingsPage {
   openGeneral(event) {
     let generalModal = this.modalCtrl.create(GeneralSettings);
     generalModal.present({ev: event});
+  }
+
+  openAccount(event) {
+    let accountModal = this.modalCtrl.create(AccountSettings);
+    accountModal.present({ev: event});
   }
 }

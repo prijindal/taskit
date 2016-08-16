@@ -4,9 +4,9 @@ import { NavController, Platform, PopoverController } from 'ionic-angular';
 import { OptionsPopover } from '../options-popover/options-popover';
 
 @Component({
-  templateUrl: 'build/pages/settings/general/general.html'
+  templateUrl: 'build/pages/settings/account/account.html'
 })
-export class GeneralSettings {
+export class AccountSettings {
   sub: any;
 
   constructor(
@@ -28,7 +28,7 @@ export class GeneralSettings {
   close(event?) {
     this.nav.pop();
   }
-  
+
   openMoreOptions(event) {
     let popover = this.popoverCtrl.create(OptionsPopover);
     popover.present({ev: event});

@@ -1,11 +1,11 @@
-<ion-header>
+<ion-header class="integrated-header">
   <ion-navbar danger>
     <ion-buttons left>
-      <button (click)="close()">
+      <button (click)="close($event)">
         <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>Settings</ion-title>
+    <ion-title>Account</ion-title>
     <ion-buttons end>
       <button (click)="openMoreOptions($event)">
         <ion-icon name="more"></ion-icon>
@@ -14,30 +14,26 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content fullscreen class="settings">
-  <ion-list no-lines>
-    <button ion-item (click)="openPremium($event)">
-      Upgrade to premium
-    </button>
-    <button ion-item (click)="openGeneral($event)">
-      General
-    </button>
-    <button ion-item (click)="openAccount($event)">
-      Account
+<ion-content fullscreen class="general settings">
+  <ion-list>
+    <button ion-item>
+      <ion-avatar item-left>
+        <img src="profile.png">
+      </ion-avatar>
+      Avatar
+      <p>Your picture is used in shared projects</p>
     </button>
     <button ion-item>
-      Notifications
+      Name
+      <p>Priyanshu Jindal</p>
     </button>
     <button ion-item>
-      Karma
-    </button>
-    <button ion-item>
-      Log out
+      Email
       <p>priyanshujindal1995@gmail.com</p>
     </button>
     <button ion-item disabled>
-      About
-      <p>Version 10.0.2 (Android 6.0.1)</p>
+      Clear locations
+      <p>0 saved locations</p>
     </button>
   </ion-list>
 </ion-content>
