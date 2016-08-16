@@ -44,4 +44,8 @@ export class MyApp {
       }
     });
   }
+
+  openInbox(event) {
+    this.nav.setRoot(TasksPage);
+  }
 }
