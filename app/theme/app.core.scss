@@ -20,3 +20,32 @@
 ion-content {
   color: #333;
 }
+
+.menu-list {
+  ion-avatar {
+    margin: 4px 9px 4px 4px;
+    min-width: 3rem;
+    ion-icon {
+      font-size: 1.5em;
+      color: #666;
+    }
+  }
+  ion-label {
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
+  .task-count {
+    font-weight: 300;
+    color: #999;
+  }
+  $activatedColor: #db4c3f;
+  .activated {
+    color: $activatedColor;
+    ion-icon {
+      color: $activatedColor;
+    }
+    .task-count {
+      color: $activatedColor;
+    }
+  }
+}
