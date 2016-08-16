@@ -38,14 +38,13 @@ ion-content {
     font-weight: 300;
     color: #999;
   }
-  $activatedColor: #db4c3f;
   .activated {
-    color: $activatedColor;
+    color: $dangerColor;
     ion-icon {
-      color: $activatedColor;
+      color: $dangerColor;
     }
     .task-count {
-      color: $activatedColor;
+      color: $dangerColor;
     }
   }
 }

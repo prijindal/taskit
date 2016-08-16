@@ -5,8 +5,24 @@
      .profile-image-background {
        height: 50px;
        width: 50px;
-       background-color: #fff;
+       background-color: #fefefe;
        border-radius: 50%;
+       position: relative;
+       .profile-image-tooltip {
+         position: absolute;
+         right: 0;
+         bottom: 0;
+         width: 20px;
+         height: 20px;
+         background: #fff;
+         border-radius: 50%;
+         text-align: center;
+         color: $dangerColor;
+         font-size: 1.1rem;
+         ion-icon {
+           height: 10px;
+         }
+       }
      }
    }
   .profile-info {
