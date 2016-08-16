@@ -4,6 +4,7 @@ import { NavController, Platform, PopoverController, ModalController } from 'ion
 import { OptionsPopover } from './options-popover/options-popover';
 
 import { PremiumSettings } from './premium/premium';
+import { GeneralSettings } from './general/general';
 
 @Component({
   templateUrl: 'build/pages/settings/settings.html'
@@ -39,5 +40,10 @@ export class SettingsPage {
   openPremium(event) {
     let premiumModal = this.modalCtrl.create(PremiumSettings);
     premiumModal.present({ev: event});
+  }
+
+  openGeneral(event) {
+    let generalModal = this.modalCtrl.create(GeneralSettings);
+    generalModal.present({ev: event});
   }
 }

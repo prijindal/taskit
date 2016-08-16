@@ -1,0 +1,59 @@
+<ion-header class="integrated-header">
+  <ion-navbar danger>
+    <ion-buttons left>
+      <button (click)="close($event)">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>General</ion-title>
+    <ion-buttons end>
+      <button (click)="moreOptions($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen class="general settings">
+  <ion-list>
+    <button ion-item>
+      Theme
+      <p>Todoist</p>
+    </button>
+    <button ion-item>
+      Start Page
+      <p>A la kart</p>
+    </button>
+    <ion-item>
+      <ion-label>
+        Sync Start Page
+        <p>Sync your start page with the web</p>
+      </ion-label>
+      <ion-checkbox secondary checked="true"></ion-checkbox>
+    </ion-item>
+    <button ion-item disabled>
+      Default Reminder
+      <p>Notification</p>
+    </button>
+    <ion-item>
+      <ion-label>
+        Inline date parsing
+        <p>Detect dates in task automatically</p>
+      </ion-label>
+      <ion-checkbox secondary checked="true"></ion-checkbox>
+    </ion-item>
+    <ion-item-divider secondary>Date & Time</ion-item-divider>
+    <button ion-item no-lines>
+      Start day
+      <p>Monday</p>
+    </button>
+    <button ion-item>
+      Next week day
+      <p>Monday</p>
+    </button>
+    <button ion-item>
+      Timezone
+      <p>Asia/Calcutta</p>
+    </button>
+  </ion-list>
+</ion-content>
