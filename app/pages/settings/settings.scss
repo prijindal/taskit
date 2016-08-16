@@ -1,9 +1,6 @@
 .settings {
   ion-list {
     margin-top: 8px;
-    .item {
-      min-height: 5.7rem;
-    }
   }
   ion-item-divider[secondary] {
     background-color: #fff;
@@ -11,6 +8,14 @@
     border: none;
     text-transform: uppercase;
     font-weight: 500;
+  }
+}
+
+.main.settings {
+  ion-list {
+    .item {
+      min-height: 5.7rem;
+    }
   }
 }
 
@@ -23,3 +28,4 @@ a[disabled], button[disabled], .button[disabled] {
 
 @import "./premium/premium";
 @import "./general/general";
+@import "./notifications/notifications";

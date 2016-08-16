@@ -1,0 +1,12 @@
+.notifications.settings {
+  .on-switch {
+    .item {
+      border:none;
+      background: $dangerColor;
+      color: #fff;
+      .item-inner {
+        border: none;
+      }
+    }
+  }
+}

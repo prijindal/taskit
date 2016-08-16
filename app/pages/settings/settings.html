@@ -14,7 +14,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content fullscreen class="settings">
+<ion-content fullscreen class="main settings">
   <ion-list no-lines>
     <button ion-item (click)="openPremium($event)">
       Upgrade to premium
@@ -25,10 +25,10 @@
     <button ion-item (click)="openAccount($event)">
       Account
     </button>
-    <button ion-item>
+    <button ion-item (click)="openNotifications($event)">
       Notifications
     </button>
-    <button ion-item>
+    <button ion-item (click)="openKarma($event)">
       Karma
     </button>
     <button ion-item>

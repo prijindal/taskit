@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar danger>
+    <ion-buttons left>
+      <button (click)="close($event)">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Notifications</ion-title>
+    <ion-buttons end>
+      <button (click)="openMoreOptions($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen class="notifications general settings">
+  <ion-toolbar danger class="on-switch">
+    <button ion-item>
+      <ion-label>
+        {{ notificationsOn ? 'On' : 'Off'}}
+      </ion-label>
+      <ion-toggle secondary [(ngModel)]="notificationsOn"></ion-toggle>
+    </button>
+  </ion-toolbar>
+  <ion-list>
+    <button ion-item>
+      Sound
+      <p>Default ringtone (Skyline)</p>
+    </button>
+    <ion-item>
+      <ion-label>Vibrate</ion-label>
+      <ion-checkbox secondary></ion-checkbox>
+    </ion-item>
+    <button ion-item>
+      Reminders
+      <p>Display task reminders</p>
+    </button>
+    <button ion-item>
+      Sharing
+      <p>Display sharing notifications</p>
+    </button>
+    <button ion-item>
+      Daily review
+      <p>Display a daily summary of your tasks</p>
+    </button>
+    <button ion-item>
+      Quick add
+      <p>Add a task from virtually anywhere</p>
+    </button>
+  </ion-list>
+</ion-content>

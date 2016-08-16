@@ -6,6 +6,7 @@ import { OptionsPopover } from './options-popover/options-popover';
 import { PremiumSettings } from './premium/premium';
 import { GeneralSettings } from './general/general';
 import { AccountSettings } from './account/account';
+import { NotificationsSettings } from './notifications/notifications';
 
 @Component({
   templateUrl: 'build/pages/settings/settings.html'
@@ -51,5 +52,14 @@ export class SettingsPage {
   openAccount(event) {
     let accountModal = this.modalCtrl.create(AccountSettings);
     accountModal.present({ev: event});
+  }
+
+  openNotifications(event) {
+    let notificationsModal = this.modalCtrl.create(NotificationsSettings);
+    notificationsModal.present({ev: event});
+  }
+
+  openKarma(event) {
+    
   }
 }

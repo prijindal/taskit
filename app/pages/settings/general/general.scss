@@ -1,16 +1,12 @@
 .general.settings {
   ion-list {
     .item {
-      min-height: 7rem;
       border-top: 1px solid #dedede;
       .item-inner {
         border-bottom: none;
       }
       &:first-child {
         border-top: none;
-      }
-      &:last-child {
-        border-bottom: none;
       }
       &[no-lines] {
         border: none;
