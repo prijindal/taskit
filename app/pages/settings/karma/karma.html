@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar danger>
+    <ion-buttons left>
+      <button (click)="close($event)">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Karma</ion-title>
+    <ion-buttons end>
+      <button (click)="openMoreOptions($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen class="notifications general settings">
+  <ion-toolbar danger class="on-switch">
+    <button ion-item>
+      <ion-label>
+        {{ karmaOn ? 'On' : 'Off'}}
+      </ion-label>
+      <ion-toggle secondary [(ngModel)]="karmaOn"></ion-toggle>
+    </button>
+  </ion-toolbar>
+  <ion-list>
+    <ion-item-divider secondary>How many tasks to complete</ion-item-divider>
+    <button ion-item no-lines>
+      Daily Goal
+      <p>5 tasks</p>
+    </button>
+    <button ion-item>
+      Weekly Goal
+      <p>25 tasks</p>
+    </button>
+    <ion-item-divider secondary>Off days</ion-item-divider>
+    <ion-item>
+      <ion-label>
+        Vacation Mode
+        <p>When active, you won't lose karma if you don't achieve your goals</p>
+      </ion-label>
+      <ion-checkbox secondary></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -7,6 +7,7 @@ import { PremiumSettings } from './premium/premium';
 import { GeneralSettings } from './general/general';
 import { AccountSettings } from './account/account';
 import { NotificationsSettings } from './notifications/notifications';
+import { KarmaSettings } from './karma/karma';
 
 @Component({
   templateUrl: 'build/pages/settings/settings.html'
@@ -60,6 +61,7 @@ export class SettingsPage {
   }
 
   openKarma(event) {
-    
+    let karmaModal = this.modalCtrl.create(KarmaSettings);
+    karmaModal.present({ev: event});
   }
 }

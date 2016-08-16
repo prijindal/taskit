@@ -1,12 +1,15 @@
 .settings {
   ion-list {
     margin-top: 8px;
+    ion-label {
+      margin: 16px 8px 16px 0;
+      white-space: normal;
+    }
   }
   ion-item-divider[secondary] {
     background-color: #fff;
     color: #ff9e13;
     border: none;
-    text-transform: uppercase;
     font-weight: 500;
   }
 }
