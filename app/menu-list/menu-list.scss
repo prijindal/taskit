@@ -1,0 +1,30 @@
+.menu-list {
+  .item:nth-last-child(2) {
+    border-bottom: 1px solid #dedede;
+  }
+  ion-avatar {
+    margin: 4px 9px 4px 4px;
+    min-width: 3rem;
+    ion-icon {
+      font-size: 1.5em;
+      color: #666;
+    }
+  }
+  ion-label {
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
+  .task-count {
+    font-weight: 300;
+    color: #999;
+  }
+  .activated {
+    color: $dangerColor;
+    ion-icon {
+      color: $dangerColor;
+    }
+    .task-count {
+      color: $dangerColor;
+    }
+  }
+}

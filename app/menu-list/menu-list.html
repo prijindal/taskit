@@ -1,0 +1,61 @@
+<ion-list class="menu-list" no-lines>
+  <button class="activated" menuClose ion-item (click)="openInbox($event)">
+    <ion-avatar item-left class="layout flex column center">
+      <ion-icon name="mail-open"></ion-icon>
+    </ion-avatar>
+    <div class="layout flex between">
+      <span>Inbox</span>
+    </div>
+  </button>
+  <button menuClose ion-item (click)="openInbox($event)">
+    <ion-avatar item-left class="layout flex column center">
+      <ion-icon name="calendar"></ion-icon>
+    </ion-avatar>
+    <div class="layout flex between">
+      <span>Today</span>
+    </div>
+  </button>
+  <button menuClose ion-item (click)="openInbox($event)">
+    <ion-avatar item-left class="layout flex column center">
+      <ion-icon name="mail-open"></ion-icon>
+    </ion-avatar>
+    <div class="layout flex between">
+      <span>Next 7 Days</span>
+      <span class="task-count">3</span>
+    </div>
+  </button>
+  <button ion-item (click)="openInbox($event)">
+    <ion-avatar item-left class="layout flex column center">
+      <ion-icon name="mail"></ion-icon>
+    </ion-avatar>
+    <div class="layout flex between">
+      <span>Projects</span>
+      <span class="task-count"><ion-icon name="arrow-dropdown"></ion-icon></span>
+    </div>
+  </button>
+  <button ion-item (click)="openInbox($event)">
+    <ion-avatar item-left class="layout flex column center">
+      <ion-icon name="mail"></ion-icon>
+    </ion-avatar>
+    <div class="layout flex between">
+      <span>Labels</span>
+    </div>
+  </button>
+  <button ion-item (click)="openInbox($event)">
+    <ion-avatar item-left class="layout flex column center">
+      <ion-icon name="mail"></ion-icon>
+    </ion-avatar>
+    <div class="layout flex between">
+      <span>Filters</span>
+      <span class="task-count"><ion-icon name="arrow-dropdown"></ion-icon></span>
+    </div>
+  </button>
+  <button lines ion-item (click)="openInbox($event)">
+    <ion-avatar item-left class="layout flex column center">
+      <ion-icon name="settings"></ion-icon>
+    </ion-avatar>
+    <div class="layout flex between">
+      <span>Settings</span>
+    </div>
+  </button>
+</ion-list>

@@ -1,14 +1,15 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, ionicBootstrap } from 'ionic-angular';
+import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
 import { TasksPage } from './pages/tasks/tasks';
 
 import { ProfileInfo } from './profile-info/profile-info';
+import { MenuList } from './menu-list/menu-list';
 
 @Component({
   templateUrl: 'build/app.html',
-  directives: [ProfileInfo]
+  directives: [ProfileInfo, MenuList]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -47,9 +48,5 @@ export class MyApp {
         }
       }
     });
-  }
-
-  openInbox(event) {
-    this.nav.setRoot(TasksPage);
   }
 }
