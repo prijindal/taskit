@@ -3,6 +3,8 @@ import { NavController, Platform, PopoverController } from 'ionic-angular';
 
 import { OptionsPopover } from '../options-popover/options-popover';
 
+import { UserService } from '../../../providers/user';
+
 @Component({
   templateUrl: 'build/pages/settings/account/account.html'
 })
@@ -12,7 +14,8 @@ export class AccountSettings {
   constructor(
     private platform: Platform,
     private nav: NavController,
-    private popoverCtrl: PopoverController
+    private popoverCtrl: PopoverController,
+    private user: UserService
   ) {}
 
   ionViewWillEnter() {

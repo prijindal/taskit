@@ -1,39 +1,44 @@
 .profile-info {
   margin: 25px 20px 25px 10px;
-   .profile-image-wrapper {
-     margin-right: 20px;
-     .profile-image-background {
-       height: 50px;
-       width: 50px;
-       background-color: #fefefe;
-       border-radius: 50%;
-       position: relative;
-       .profile-image-tooltip {
-         position: absolute;
-         right: 0;
-         bottom: 0;
-         width: 20px;
-         height: 20px;
-         background: #fff;
-         border-radius: 50%;
-         text-align: center;
-         color: $dangerColor;
-         font-size: 1.1rem;
-         ion-icon {
-           height: 10px;
-         }
+  .profile-image-wrapper {
+    margin-right: 20px;
+    .profile-image-background {
+      background-color: #fefefe;
+      background-size: contain;
+      border-radius: 50%;
+      height: 50px;
+      position: relative;
+      width: 50px;
+
+      .profile-image-tooltip {
+        background: #fff;
+        border-radius: 50%;
+        bottom: 0;
+        color: $dangerColor;
+        font-size: 1.1rem;
+        height: 20px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        width: 20px;
+
+        ion-icon {
+          height: 10px;
+        }
        }
      }
    }
   .profile-info-text {
     color: #fff;
     .profile-name {
-      font-weight: 500;
       font-size: 1.6rem;
+      font-weight: 500;
     }
+
     .profile-karma {
-      letter-spacing: -0.2px;
+      letter-spacing: -.2px;
     }
+
     > div {
       margin: 3px 0;
     }
