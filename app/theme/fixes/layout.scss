@@ -4,8 +4,10 @@ ion-header {
     padding: 0 3px;
   }
 
-  button[menutoggle] {
-    margin: 0 3px;
+  button {
+    &[menutoggle] {
+      margin: 0 3px;
+    }
   }
 }
 

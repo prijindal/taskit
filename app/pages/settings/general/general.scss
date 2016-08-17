@@ -1,15 +1,20 @@
-.general.settings {
-  ion-list {
-    .item {
-      border-top: 1px solid #dedede;
-      .item-inner {
-        border-bottom: none;
-      }
-      &:first-child {
-        border-top: none;
-      }
-      &[no-lines] {
-        border: none;
+.general {
+  &.settings {
+    ion-list {
+      .item {
+        border-top: 1px solid $list-md-border-color;
+
+        .item-inner {
+          border-bottom: none;
+        }
+
+        &:first-child {
+          border-top: none;
+        }
+
+        &[no-lines] {
+          border: none;
+        }
       }
     }
   }

@@ -1,11 +1,17 @@
-.notifications.settings {
-  .on-switch {
-    .item {
-      border:none;
-      background: $danger-color;
-      color: #fff;
-      .item-inner {
+.notifications {
+  &.settings {
+
+    $item-on-color: #fff;
+
+    .on-switch {
+      .item {
+        background: $danger-color;
         border: none;
+        color: $item-on-color;
+
+        .item-inner {
+          border: none;
+        }
       }
     }
   }

@@ -1,48 +1,66 @@
 .premium-settings {
+  $ion-slide-color: #fff;
+
   ion-slides {
-    color: #fff;
-    height: 75%;
     background: $danger-color;
+    color: $ion-slide-color;
+    height: 75%;
+
     p {
-      color: #fff;
+      color: $ion-slide-color;
     }
+
     ion-slide {
-      justify-content: flex-start;
       align-items: flex-start;
+      justify-content: flex-start;
+
       img {
         height: 200px;
       }
+
       .text {
         margin: 40px;
       }
-      h3,p {
-        text-align: left;
+
+      h3,
+      p {
         font-weight: 400;
+        text-align: left;
       }
+
       h3 {
         font-size: 2rem;
       }
+
       p {
         font-size: 1.6rem;
       }
     }
+
+    $swiper-pagination-color: #fff;
+
     .swiper-pagination-bullet {
-      background: #fff;
+      background: $swiper-pagination-color;
     }
   }
+
   .upgrade-button {
     height: 15%;
     margin-top: 1rem;
+
     button {
-      text-align: center;
-      text-transform: uppercase;
       font-weight: 400;
       padding: 25px 70px;
-    }
-    .text {
       text-align: center;
+      text-transform: uppercase;
+    }
+
+    $upgrade-text-color: #666;
+
+    .text {
+      color: $upgrade-text-color;
       font-size: 1.2rem;
-      color: #666;
+      text-align: center;
     }
   }
 }
