@@ -77,9 +77,10 @@ else {
   });
 }
 
-gulp.task('build', ['build:prequel'], function(done) {
-  glob('./www/build/**/*.html', function(e,files) {
-    var indexPath = './www/build/js/app.bundle.js'
+gulp.task('inline', function(done) {
+  var rootPath = './www/build'
+  glob(rootPath + '/**/*.html', function(e,files) {
+    var indexPath = rootPath + '/js/app.bundle.js'
     var js = fs.readFileSync(indexPath, 'utf8');
 
     async.eachSeries(files, function(file, callback) {
@@ -93,6 +94,12 @@ gulp.task('build', ['build:prequel'], function(done) {
       });
     })
   })
+})
+
+gulp.task('build', ['build:prequel'], function(done) {
+  runSequence(
+    ['inline']
+  )
 })
 
 gulp.task('sass', function() {
