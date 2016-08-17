@@ -1,11 +1,11 @@
 .profile-info {
   margin: 25px 20px 25px 10px;
 
+  $proflie-image-background: #fefefe;
+  $proflie-image-tooltip-background: #fff;
+
   .profile-image-wrapper {
     margin-right: 20px;
-
-    $proflie-image-background: #fefefe;
-    $proflie-image-tooltip-background: #fff;
 
     .profile-image-background {
       background-color: $proflie-image-background;
