@@ -7,19 +7,21 @@
 // By default each design mode includes these shared imports.
 // App Shared Sass variables belong in app.variables.scss.
 
-@import "./variables";
+@import './variables';
 
-@import "./fixes/layout";
+@import './fixes/layout';
 
-@import "./global/layout";
+@import './global/layout';
 
-@import "../pages/tasks/tasks";
-@import "../pages/settings/settings";
-@import "../pages/profile/profile";
+@import '../pages/tasks/tasks';
+@import '../pages/settings/settings';
+@import '../pages/profile/profile';
 
-@import "../profile-info/profile-info";
-@import "../menu-list/menu-list";
+@import '../profile-info/profile-info';
+@import '../menu-list/menu-list';
+
+$default-text-color: #333;
 
 ion-content {
-  color: #333;
+  color: $default-text-color;
 }

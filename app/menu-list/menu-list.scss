@@ -1,30 +1,45 @@
+$list-md-border-color: #dedede;
+
 .menu-list {
-  .item:nth-last-child(2) {
-    border-bottom: 1px solid #dedede;
+  .item {
+    &:nth-last-child(2) {
+      border-bottom: 1px solid $list-md-border-color;
+    }
   }
+
   ion-avatar {
     margin: 4px 9px 4px 4px;
     min-width: 3rem;
+
+    $avatar-icon-color: #666;
+
     ion-icon {
+      color: $avatar-icon-color;
       font-size: 1.5em;
-      color: #666;
     }
   }
+
   ion-label {
-    font-weight: 500;
     font-size: 1.4rem;
+    font-weight: 500;
   }
+
+  $task-count-color: #999;
+
   .task-count {
+    color: $task-count-color;
     font-weight: 300;
-    color: #999;
   }
+
   .activated {
-    color: $dangerColor;
+    color: $danger-color;
+
     ion-icon {
-      color: $dangerColor;
+      color: $danger-color;
     }
+
     .task-count {
-      color: $dangerColor;
+      color: $danger-color;
     }
   }
 }

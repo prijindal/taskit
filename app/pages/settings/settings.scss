@@ -1,34 +1,48 @@
 .settings {
   ion-list {
     margin-top: 8px;
+
     ion-label {
       margin: 16px 8px 16px 0;
       white-space: normal;
     }
   }
-  ion-item-divider[secondary] {
-    background-color: #fff;
-    color: #ff9e13;
-    border: none;
-    font-weight: 500;
-  }
-}
 
-.main.settings {
-  ion-list {
-    .item {
-      min-height: 5.7rem;
+  $secondary-divider-color: #ff9e13;
+  $secondary-divider-background: #fff;
+
+  ion-item-divider {
+    &[secondary] {
+      background-color: $secondary-divider-background;
+      border: none;
+      color: $secondary-divider-color;
+      font-weight: 500;
     }
   }
 }
 
-a[disabled], button[disabled], .button[disabled] {
-  opacity: 1;
-  .item-inner {
-    opacity: 0.4;
+.main {
+  &.settings {
+    ion-list {
+      .item {
+        min-height: 5.7rem;
+      }
+    }
   }
 }
 
-@import "./premium/premium";
-@import "./general/general";
-@import "./notifications/notifications";
+a,
+button,
+.button {
+  &[disabled] {
+    opacity: 1;
+    
+    .item-inner {
+      opacity: .4;
+    }
+  }
+}
+
+@import './premium/premium';
+@import './general/general';
+@import './notifications/notifications';
