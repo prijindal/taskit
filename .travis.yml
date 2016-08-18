@@ -5,21 +5,18 @@ node_js:
 cache:
   directories:
     - node_modules
-    - $(npm config get prefix)/bin/ionic
-    - $(npm config get prefix)/bin/cordova
+    - $(npm config get prefix)/bin/gulp
     - $(npm config get prefix)/bin/sass-lint
     - $(npm config get prefix)/bin/surge
     - $(npm config get prefix)/bin/tslint
 
 before_install:
-  - npm install -g ionic@latest cordova surge sass-lint tslint
+  - npm install -g gulp cordova surge sass-lint tslint
 
 install: npm install
 script:
   - npm run tslint "app/**/*.ts"
   - npm run sass-lint
-  - chmod +x hooks/after_prepare/010_add_platform_class.js
-  - ionic platform add browser
-  - ionic build browser --release
+  - gulp build --release
 after_script:
   - npm run surge

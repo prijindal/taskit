@@ -31,7 +31,7 @@
   "scripts": {
     "tslint": "tslint",
     "sass-lint": "sass-lint -v -c",
-    "surge": "cd platforms/browser/www/ && cp index.html 200.html && echo https://taskit.surge.sh > CNAME && surge ."
+    "surge": "cd www/ && cp index.html 200.html && echo https://taskit.surge.sh > CNAME && surge ."
   },
   "name": "taskit",
   "description": "TaskIt powered by todoist"
