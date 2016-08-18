@@ -1,0 +1,37 @@
+.home {
+  background-color: $danger-color;
+
+  $home-text-color: #fff;
+  $home-button-text-color: #333;
+
+  .home-page {
+    color: $home-text-color;
+    margin: 20px;
+    text-align: center;
+  }
+
+  .home-image {
+    margin: 30px auto 10px;
+    width: 150px;
+  }
+
+  .home-text {
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin-top: 0;
+    }
+  }
+
+  .buttons {
+    margin-top: 20px;
+
+    button {
+      background-color: $home-text-color;
+      color: $home-button-text-color;
+      margin: 1rem;
+    }
+  }
+}
