@@ -12,11 +12,13 @@ cache:
     - $(npm config get prefix)/bin/tslint
 
 before_install:
-  - npm install -g ionic@beta cordova surge sass-lint tslint
+  - npm install -g ionic@latest cordova surge sass-lint tslint
 
 install: npm install
 script:
   - npm run tslint "app/**/*.ts"
   - npm run sass-lint
+  - ionic platform add browser
+  - ionic build browser --release
 after_script:
-  - bash ./serve.sh
+  - npm run surge
