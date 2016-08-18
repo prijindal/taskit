@@ -15,11 +15,10 @@ before_install:
   - npm install -g ionic@latest cordova surge sass-lint tslint
 
 install: npm install
-before_sript:
-  - chmod +x hooks/after_prepare/010_add_platform_class.js
 script:
   - npm run tslint "app/**/*.ts"
   - npm run sass-lint
+  - chmod +x hooks/after_prepare/010_add_platform_class.js
   - ionic platform add browser
   - ionic build browser --release
 after_script:
