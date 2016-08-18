@@ -86,7 +86,7 @@ gulp.task('inline', function(done) {
     async.eachSeries(files, function(file, callback) {
       filename = file.substr(6)
       var html = fs.readFileSync(file, 'utf8');
-      js = js.replace("templateUrl: '" + filename + "'", "template: `" + html +"`")
+      js = js.replace('templateUrl:"' + filename + '"', "template: `" + html +"`")
       callback()
     }, function() {
       fs.writeFile(indexPath, js, 'utf8', function(err, data) {
