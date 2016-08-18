@@ -11,7 +11,7 @@ cache:
     - $(npm config get prefix)/bin/tslint
 
 before_install:
-  - npm install -g gulp cordova surge sass-lint tslint
+  - npm install -g gulp surge sass-lint tslint
 
 install: npm install
 script:
