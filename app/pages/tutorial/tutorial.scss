@@ -23,13 +23,13 @@
 
       &.logo {
         img {
-          margin-top: 48px;
+          margin-top: 60px;
           transition: margin 1s;
-          width: 200px;
+          width: 150px;
         }
 
         .text {
-          margin-top: 90px;
+          margin-top: 112px;
           opacity: 1;
           transition: margin 1s, opacity 1s;;
         }
@@ -48,18 +48,17 @@
 
       h3,
       div {
+        font-weight: 400;
         text-align: left;
       }
 
       h3 {
         font-size: 2.4rem;
-        font-weight: 500;
         margin-bottom: 16px;
       }
 
       div {
         font-size: 1.8rem;
-        font-weight: 400;
       }
     }
 
@@ -67,6 +66,7 @@
 
     .swiper-pagination-bullet {
       background: $swiper-pagination-color;
+      transition: opacity .5s;
 
       &:last-child {
         display: none;
