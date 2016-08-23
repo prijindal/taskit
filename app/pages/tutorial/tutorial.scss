@@ -1,17 +1,75 @@
 .tutorial {
-  background-color: $danger-color;
   $tutorial-text-color: #fff;
+  $ion-slide-color: #fff;
 
   ion-slides {
-    color: $tutorial-text-color;
-    
-    .swiper-pagination {
-      .swiper-pagination-bullet {
-        background: $tutorial-text-color;
-        
-        &:last-child {
-          display: none;
+    background: $danger-color;
+    color: $ion-slide-color;
+
+    ion-slide {
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-top: 48px;
+
+      img {
+        display: flex;
+        margin: 0 auto;
+        width: 250px;
+      }
+
+      .text {
+        margin: 64px 50px 40px 40px;
+      }
+
+      &.logo {
+        img {
+          margin-top: 48px;
+          transition: margin 1s;
+          width: 200px;
         }
+
+        .text {
+          margin-top: 90px;
+          opacity: 1;
+          transition: margin 1s, opacity 1s;;
+        }
+
+        &.animating {
+          img {
+            margin-top: 156px;
+          }
+
+          .text {
+            margin-top: 40px;
+            opacity: 0;
+          }
+        }
+      }
+
+      h3,
+      div {
+        text-align: left;
+      }
+
+      h3 {
+        font-size: 2.4rem;
+        font-weight: 500;
+        margin-bottom: 16px;
+      }
+
+      div {
+        font-size: 1.8rem;
+        font-weight: 400;
+      }
+    }
+
+    $swiper-pagination-color: #fff;
+
+    .swiper-pagination-bullet {
+      background: $swiper-pagination-color;
+
+      &:last-child {
+        display: none;
       }
     }
   }

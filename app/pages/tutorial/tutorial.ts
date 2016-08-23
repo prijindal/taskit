@@ -8,6 +8,7 @@ import { WelcomePage } from '../welcome/welcome';
 })
 export class TutorialPage {
   @ViewChild('tutorialSlider') slider: Slides;
+  animating: Boolean = true;
 
   tutorialSlideOptions = {
     pager: true
@@ -16,6 +17,12 @@ export class TutorialPage {
   constructor(
     private nav: NavController
   ) {}
+
+  ionViewDidEnter() {
+    setTimeout(() => {
+      this.animating = false;
+    }, 400);
+  }
 
   onSlideDrag(event) {
     if (this.slider.isEnd()) {
