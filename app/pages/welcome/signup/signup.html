@@ -1,0 +1,33 @@
+<ion-header class="tasks-navbar">
+  <ion-navbar danger>
+    <button menuToggle (click)="close()">
+      <ion-icon name="arrow-backward"></ion-icon>
+    </button>
+    <ion-title>Sign Up</ion-title>
+    <ion-buttons end>
+      <button (click)="signup($event)">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen class="login">
+  <ion-list no-lines>
+    <form (ngSubmit)="signup($event)" #signupForm="ngForm">
+      <ion-item>
+        <ion-label secondary floating>Name</ion-label>
+        <ion-input type="name" autocomplete="on" name="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label secondary floating>Email</ion-label>
+        <ion-input type="email" autocomplete="on" name="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label secondary floating>Password</ion-label>
+        <ion-input type="password" name="password"></ion-input>
+      </ion-item>
+      <button ion-item hidden></button>
+    </form>
+  </ion-list>
+</ion-content>

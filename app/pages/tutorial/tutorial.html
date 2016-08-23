@@ -1,0 +1,47 @@
+<ion-content fullscreen class="tutorial">
+  <ion-slides #tutorialSlider [options]="tutorialSlideOptions" (ionWillChange)="onSlideDrag($event)">
+    <ion-slide>
+      <img src="img/premium/ic_premium_unlock.png"/>
+      <div class="text">
+        <h3>Unlock Your Potential</h3>
+        <div>
+          Premium gives you the tools to succeed across 15+ Platforms.
+          Upgrade today!
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <img src="img/premium/ic_premium_organized.png"/>
+      <div class="text">
+        <h3>Get Even More Organised</h3>
+        <div>
+          Ignite your productivity with labels, reminders, comments, calendar sync and more.
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <img src="img/premium/ic_premium_coordinated.png"/>
+      <div class="text">
+        <h3>Stay coordinated anywhere</h3>
+        <div>
+          With file uploads, voice messages, location reminders and more, you'll never miss a beat.
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <img src="img/premium/ic_premium_more.png"/>
+      <div class="text">
+        <h3>And much more!</h3>
+        <div>
+          Including automatic backups, productivity tracking, advanced filters and other valuable features.
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide>
+
+    </ion-slide>
+  </ion-slides>
+  <button clear class="skip-button" (click)="goToWelcome($event)">
+    SKIP
+  </button>
+</ion-content>

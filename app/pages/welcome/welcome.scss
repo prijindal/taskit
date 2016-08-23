@@ -34,4 +34,11 @@
       margin: 1rem;
     }
   }
+
+  .take-tour {
+    color: $home-text-color;
+    margin-top: 64px;
+  }
 }
+
+@import './login/login';

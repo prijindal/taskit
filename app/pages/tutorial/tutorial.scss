@@ -1,0 +1,25 @@
+.tutorial {
+  background-color: $danger-color;
+  $tutorial-text-color: #fff;
+
+  ion-slides {
+    color: $tutorial-text-color;
+    
+    .swiper-pagination {
+      .swiper-pagination-bullet {
+        background: $tutorial-text-color;
+        
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .skip-button {
+    bottom: 0;
+    color: $tutorial-text-color;
+    position: fixed;
+    z-index: 10;
+  }
+}

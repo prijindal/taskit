@@ -1,6 +1,9 @@
 <ion-header class="tasks-navbar">
   <ion-navbar danger>
-    <ion-title>Login</ion-title>
+    <button menuToggle (click)="close()">
+      <ion-icon name="arrow-backward"></ion-icon>
+    </button>
+    <ion-title>Log in</ion-title>
     <ion-buttons end>
       <button (click)="login($event)">
         <ion-icon name="arrow-forward"></ion-icon>
@@ -10,5 +13,20 @@
 </ion-header>
 
 <ion-content fullscreen class="login">
-
+  <ion-list no-lines>
+    <form (ngSubmit)="login($event)" #loginForm="ngForm">
+      <ion-item>
+        <ion-label secondary floating>Email</ion-label>
+        <ion-input type="email" autocomplete="on" name="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label secondary floating>Password</ion-label>
+        <ion-input type="password" name="password"></ion-input>
+      </ion-item>
+      <button ion-item hidden></button>
+    </form>
+    <a (click)="forgotPassword($event)" class="forgot layout flex center">
+      Forgot your password?
+    </a>
+  </ion-list>
 </ion-content>

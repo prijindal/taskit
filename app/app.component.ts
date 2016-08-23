@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav, MenuController } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
-import { WelcomePage } from './pages/welcome/welcome';
+import { TutorialPage } from './pages/tutorial/tutorial';
 import { TasksPage } from './pages/tasks/tasks';
 
 import { ProfileInfo } from './profile-info/profile-info';
@@ -14,7 +14,7 @@ import { MenuList } from './menu-list/menu-list';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = WelcomePage;
+  rootPage: any = TutorialPage;
   enableMenu: Boolean = false;
 
   constructor(
@@ -34,7 +34,7 @@ export class MyApp {
   }
 
   initMenu() {
-    this.enableMenu = true;
+    // this.enableMenu = true;
   }
 
   initBackButton() {

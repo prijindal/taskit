@@ -1,0 +1,57 @@
+.login {
+  padding: 0 16px;
+
+  scroll-content {
+    padding: 0 16px;
+  }
+  $input-color: #387ef5;
+  $focus-input-color: #ff9e13;
+
+  @mixin inner-item() {
+    .item-inner {
+      border-bottom-color: $input-color;
+      box-shadow: inset 0 -1px 0 0 $input-color;
+    }
+  }
+
+  @mixin inner-item-focus() {
+    .item-inner {
+      border-bottom-color: $focus-input-color;
+      box-shadow: inset 0 -2px 0 0 $focus-input-color;
+    }
+  }
+
+  ion-item {
+
+    ion-label {
+      color: #000;
+      font-size: 1.9rem;
+      font-weight: 300;
+    }
+
+    @include inner-item();
+
+    &.input-has-focus {
+      ion-label {
+        color: $focus-input-color;
+      }
+
+      @include inner-item-focus();
+
+      &:last-child {
+        border-bottom: none;
+        box-shadow: none;
+
+        @include inner-item-focus();
+      }
+    }
+  }
+
+  .forgot {
+    color: #999;
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-top: 24px;
+    text-align: center;
+  }
+}
