@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { Platform, Nav, MenuController, Events } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
@@ -20,6 +20,7 @@ export class MyApp {
   enableMenu: Boolean = false;
 
   constructor(
+    private ref: ChangeDetectorRef,
     private events: Events,
     private platform: Platform,
     private menu: MenuController,
@@ -37,17 +38,15 @@ export class MyApp {
   }
 
   initMenu() {
-    if (this.token.token) {
-      this.rootPage = TutorialPage;
-    } else {
-      this.enableMenu = true;
-      this.rootPage = TasksPage;
-    }
-    this.events.subscribe('logged:in', (isLoggedIn) => {
+    this.events.subscribe('logged:in', (params) => {
+      let isLoggedIn = params[0];
       if (isLoggedIn) {
         this.enableMenu = true;
         this.rootPage = TasksPage;
+      } else {
+        this.rootPage = TutorialPage;
       }
+      this.ref.detectChanges();
     });
   }
 

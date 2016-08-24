@@ -16,6 +16,8 @@ export class TokenService {
       if (token) {
         this.token = token;
         this.events.publish('logged:in', true);
+      } else {
+        this.events.publish('logged:in', false);
       }
     });
   }
@@ -24,5 +26,11 @@ export class TokenService {
     this.token = newToken;
     this.local.set(this.TOKEN_QUERY, this.token);
     this.events.publish('logged:in', true);
+  }
+
+  logout() {
+    this.events.publish('logged:in', false);
+    this.token = undefined;
+    this.local.remove(this.TOKEN_QUERY);
   }
 }
