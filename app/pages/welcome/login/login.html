@@ -17,11 +17,11 @@
     <form (ngSubmit)="login($event)" #loginForm="ngForm">
       <ion-item>
         <ion-label secondary floating>Email</ion-label>
-        <ion-input type="email" autocomplete="on" name="email"></ion-input>
+        <ion-input type="email" autocomplete="on" name="email" [(ngModel)]="loginService.user.email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label secondary floating>Password</ion-label>
-        <ion-input type="password" name="password"></ion-input>
+        <ion-input type="password" name="password" [(ngModel)]="loginService.user.password"></ion-input>
       </ion-item>
       <button ion-item hidden></button>
     </form>

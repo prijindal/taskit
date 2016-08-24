@@ -4,6 +4,8 @@ import { NavController } from 'ionic-angular';
 
 import { TasksPage } from '../../tasks/tasks';
 
+import { LoginService } from '../../../providers/login';
+
 @Component({
   templateUrl: 'build/pages/welcome/login/login.html'
 })
@@ -11,6 +13,7 @@ export class LoginPage {
   emailinput: any;
 
   constructor(
+    private loginService: LoginService,
     private nav: NavController,
     private el: ElementRef
   ) {}
@@ -30,7 +33,10 @@ export class LoginPage {
   }
 
   login(event) {
-    this.nav.setRoot(TasksPage);
+    this.loginService.login()
+    .subscribe(() => {
+      this.nav.setRoot(TasksPage);
+    });
   }
 
   forgotPassword(event) {

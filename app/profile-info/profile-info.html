@@ -1,4 +1,4 @@
-<div class="profile-info layout flex row start" (click)="openProfile($event)">
+<div class="profile-info layout flex row start" (click)="openProfile($event)" *ngIf="user.user">
   <div class="profile-image-wrapper">
     <div class="profile-image-background" [style.background-image]="'url(' + user.user.avatar_big +')'">
       <div class="profile-image-tooltip layout flex column center">
@@ -8,10 +8,10 @@
   </div>
   <div class="profile-info-text layout flex column center">
     <div class="profile-name">
-      Priyanshu Jindal
+      {{user.user.full_name}}
     </div>
     <div class="profile-karma">
-      2897
+      {{user.user.karma}}
     </div>
   </div>
 </div>

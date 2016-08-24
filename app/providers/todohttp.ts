@@ -22,7 +22,8 @@ export class TodoHttp {
       body: this.urlEncode(body)
     });
 
-    return this.http.post(HOST + url, null, options);
+    return this.http.post(HOST + url, null, options)
+    .map(res => res.json());
   }
 
   private urlEncode(obj) {
