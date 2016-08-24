@@ -20,7 +20,7 @@ export class LoginService {
   login() {
     return this.http.post('user/login', {email: this.user.email, password: this.user.password})
     .map((res) => {
-      this.token.setToken(res.api_token);
+      this.token.setToken(res.token);
       this.userService.saveUserData(res);
       return res;
     });
