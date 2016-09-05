@@ -40,7 +40,7 @@ export class ProjectsService {
   getProjectCount(project_id: number) {
     let count = 0;
     this.syncService.syncData.items.forEach((item) => {
-      if (item.project_id === project_id) {
+      if (item.project_id === project_id && !item.checked) {
         count++;
       }
     });

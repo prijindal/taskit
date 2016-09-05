@@ -5,6 +5,7 @@
     </ion-avatar>
     <div class="layout flex between">
       <span>Inbox</span>
+      <span *ngIf="syncService.syncData" class="task-count">{{itemsService.getInboxItemsCount()}}</span>
     </div>
   </button>
   <button menuClose ion-item (click)="openInbox($event)">
@@ -13,6 +14,7 @@
     </ion-avatar>
     <div class="layout flex between">
       <span>Today</span>
+      <span *ngIf="syncService.syncData" class="task-count">{{itemsService.getTodayItemsCount()}}</span>
     </div>
   </button>
   <button menuClose ion-item (click)="openInbox($event)">
@@ -21,7 +23,7 @@
     </ion-avatar>
     <div class="layout flex between">
       <span>Next 7 Days</span>
-      <span *ngIf="syncService.syncData" class="task-count">{{itemsService.getSevenDaysItemsCount(syncService.syncData.items)}}</span>
+      <span *ngIf="syncService.syncData" class="task-count">{{itemsService.getSevenDaysItemsCount()}}</span>
     </div>
   </button>
   <button ion-item (click)="showProjects = !showProjects;">
@@ -34,7 +36,7 @@
     </div>
   </button>
   <ion-list *ngIf="showProjects && syncService.syncData && syncService.syncData.projects" no-lines class="sub-list">
-    <button ion-item *ngFor="let project of syncService.syncData.projects">
+    <button ion-item *ngFor="let project of syncService.syncData.projects" [hidden]="project.inbox_project">
       <ion-avatar item-left class="layout flex column center">
         <i class="dot" [style.background-color]="projectsService.getProjectColor(project.color)"></i>
       </ion-avatar>

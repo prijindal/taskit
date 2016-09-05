@@ -6,6 +6,8 @@ import { OptionsPopover } from './options-popover/options-popover';
 
 import { SyncService } from '../../providers/sync';
 
+import { ItemsService } from '../../providers/items';
+
 @Component({
   templateUrl: 'build/pages/tasks/tasks.html'
 })
@@ -18,18 +20,24 @@ export class TasksPage {
   searchinput: any;
   searchtext: string = '';
   newtaskinput: any;
+  items: any[] = [];
 
   constructor(
     private ref: ChangeDetectorRef,
     private platform: Platform,
     private popoverCtrl: PopoverController,
-    private syncService: SyncService
-  ) { }
+    private syncService: SyncService,
+    private itemsService: ItemsService
+  ) {
+    this.items = this.itemsService.getInboxItems();
+  }
 
   ionViewDidEnter() {
     this.newtaskinput = document.querySelector('ion-input[name="newtask"] input');
     this.searchinput = document.querySelector('ion-searchbar input');
-    this.syncService.syncAll().subscribe(res => {}, err => {});
+    this.syncService.syncAll().subscribe(res => {
+      this.items = this.itemsService.getInboxItems();
+    }, err => {});
   }
 
   openSettings(event) {

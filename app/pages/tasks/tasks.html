@@ -39,9 +39,17 @@
 
 <ion-content fullscreen class="tasks">
   <div *ngIf="!searching">
-    <div class="layout flex column center no-tasks">
+    <div *ngIf="items.length === 0" class="layout flex column center no-tasks">
       <ion-icon name="mail-open"></ion-icon>
       <h2>No tasks for Inbox.</h2>
+    </div>
+    <div *ngIf="items.length !== 0">
+      <ion-list no-lines>
+        <ion-item *ngFor="let item of items">
+         {{item.content}}
+         <p>{{itemsService.pretifyDate(item.due_date_utc)}}</p>
+        </ion-item>
+      </ion-list>
     </div>
   </div>
 
