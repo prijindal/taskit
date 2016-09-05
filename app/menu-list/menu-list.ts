@@ -4,6 +4,10 @@ import { ModalController } from 'ionic-angular';
 import { TasksPage } from '../pages/tasks/tasks';
 
 import { SettingsPage } from '../pages/settings/settings';
+import { SyncService } from '../providers/sync';
+import { ProjectsService } from '../providers/projects';
+
+import { ItemsService } from '../providers/items';
 
 @Component({
   selector: 'menu-list',
@@ -12,9 +16,13 @@ import { SettingsPage } from '../pages/settings/settings';
 export class MenuList {
   @Input()
   nav: any;
+  showProjects: Boolean = false;
 
   constructor(
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private syncService: SyncService,
+    private projectsService: ProjectsService,
+    private itemsService: ItemsService
   ) {}
 
   openInbox(event) {

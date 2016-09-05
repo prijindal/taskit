@@ -34,6 +34,10 @@ export class LoginPage {
 
   login(event) {
     this.loginService.login()
+    .catch((err) => {
+      alert(err);
+      return err;
+    })
     .subscribe(() => {
       this.nav.setRoot(TasksPage);
     });

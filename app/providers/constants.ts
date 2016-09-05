@@ -1,1 +1,1 @@
-export const HOST: string = 'https://todoist.com/API/v7/';
+export const HOST: string = 'https://todoapp-api.herokuapp.com/';

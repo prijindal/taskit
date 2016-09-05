@@ -9,6 +9,12 @@ import { LoginService } from './providers/login';
 
 import { UserService } from './providers/user';
 
+import { SyncService } from './providers/sync';
+
+import { ProjectsService } from './providers/projects';
+
+import { ItemsService } from './providers/items';
+
 export const APP_PROVIDERS = [
   HTTP_PROVIDERS,
 
@@ -17,5 +23,9 @@ export const APP_PROVIDERS = [
   TokenService,
   TodoHttp,
   LoginService,
-  UserService
+  UserService,
+
+  SyncService,
+  ProjectsService,
+  ItemsService
 ];

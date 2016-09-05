@@ -21,10 +21,10 @@
     </ion-avatar>
     <div class="layout flex between">
       <span>Next 7 Days</span>
-      <span class="task-count">3</span>
+      <span *ngIf="syncService.syncData" class="task-count">{{itemsService.getSevenDaysItemsCount(syncService.syncData.items)}}</span>
     </div>
   </button>
-  <button ion-item (click)="openInbox($event)">
+  <button ion-item (click)="showProjects = !showProjects;">
     <ion-avatar item-left class="layout flex column center">
       <ion-icon name="mail"></ion-icon>
     </ion-avatar>
@@ -33,6 +33,17 @@
       <span class="task-count"><ion-icon name="arrow-dropdown"></ion-icon></span>
     </div>
   </button>
+  <ion-list *ngIf="showProjects && syncService.syncData && syncService.syncData.projects" no-lines class="sub-list">
+    <button ion-item *ngFor="let project of syncService.syncData.projects">
+      <ion-avatar item-left class="layout flex column center">
+        <i class="dot" [style.background-color]="projectsService.getProjectColor(project.color)"></i>
+      </ion-avatar>
+      <div class="layout flex between">
+        <span>{{project.name}}</span>
+        <span class="task-count">{{projectsService.getProjectCount(project.id)}}</span>
+      </div>
+    </button>
+  </ion-list>
   <button ion-item (click)="openInbox($event)">
     <ion-avatar item-left class="layout flex column center">
       <ion-icon name="mail"></ion-icon>

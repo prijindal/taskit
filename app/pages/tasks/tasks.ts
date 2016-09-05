@@ -4,6 +4,8 @@ import { Keyboard, StatusBar } from 'ionic-native';
 
 import { OptionsPopover } from './options-popover/options-popover';
 
+import { SyncService } from '../../providers/sync';
+
 @Component({
   templateUrl: 'build/pages/tasks/tasks.html'
 })
@@ -20,12 +22,14 @@ export class TasksPage {
   constructor(
     private ref: ChangeDetectorRef,
     private platform: Platform,
-    private popoverCtrl: PopoverController
+    private popoverCtrl: PopoverController,
+    private syncService: SyncService
   ) { }
 
   ionViewDidEnter() {
     this.newtaskinput = document.querySelector('ion-input[name="newtask"] input');
     this.searchinput = document.querySelector('ion-searchbar input');
+    this.syncService.syncAll().subscribe(res => {}, err => {});
   }
 
   openSettings(event) {

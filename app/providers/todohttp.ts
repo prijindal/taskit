@@ -22,7 +22,9 @@ export class TodoHttp {
       body: this.urlEncode(body)
     });
 
-    return this.http.post(HOST + url, null, options)
+    url = HOST + url + '.php';
+
+    return this.http.post(url, null, options)
     .map(res => res.json());
   }
 

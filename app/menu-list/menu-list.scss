@@ -40,4 +40,24 @@
       color: $danger-color;
     }
   }
+
+  .sub-list {
+    .item {
+      padding-left: 30px;
+    }
+
+    ion-avatar {
+      margin-right: 4px;
+    }
+
+    $dot-size: 10px;
+
+    .dot {
+      background: red;
+      border-radius: 50%;
+      height: $dot-size;
+      margin: 0 auto;
+      width: $dot-size;
+    }
+  }
 }
