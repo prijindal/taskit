@@ -14,7 +14,7 @@ export class ItemsService {
     var now = new Date();
     items.forEach((item) => {
       if (item.due_date_utc) {
-        var d = new Date(item.due_date_utc)
+        var d = new Date(item.due_date_utc);
         var timeDiff = Math.abs(d.getTime() - now.getTime());
         var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
         if (diffDays <= 7 ) {
